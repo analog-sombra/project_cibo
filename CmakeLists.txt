@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 3.24)
+
+project(cibo)
+
+# Find and include required packages
+find_package(SDL3 REQUIRED COMPONENTS Headers)
+find_package(ZLIB REQUIRED)
+find_package(SDL3_mixer REQUIRED)
+find_package(imgui CONFIG REQUIRED)
+
+# Set C++ Standard
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Include directories for the project
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# Source Files
+file(GLOB_RECURSE USER_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_SOURCE_DIR}/src/*.cpp"
+)
+
+# Add executable with main.cpp and all sources
+add_executable(${PROJECT_NAME}
+    main.cpp
+    ${USER_SOURCES}
+)
+
+
+# Link required packages
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    SDL3::SDL3
+    SDL3_mixer::SDL3_mixer
+    imgui::imgui
+)
+
+# copy assets folder to build directory after build
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets
+    COMMENT "Copying assets folder to build directory"
+)

@@ -1,0 +1,99 @@
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+Detecting compiler hash for triplet x64-windows-static...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+The following packages are already installed:
+  * brotli:x64-windows-static@1.2.0
+  * bzip2[core,tool]:x64-windows-static@1.0.8#6
+    fmt:x64-windows-static@12.2.0#1
+  * freetype[core,zlib,png,bzip2,brotli]:x64-windows-static@2.14.3
+    imgui[core,sdlgpu3-binding,sdl3-renderer-binding,sdl3-binding,freetype,docking-experimental]:x64-windows-static@1.92.8#1
+  * libpng:x64-windows-static@1.6.58
+    sdl3:x64-windows-static@3.4.14
+    spdlog[core,tz-offset,fmt]:x64-windows-static@1.17.0#1
+  * vcpkg-cmake:x64-windows@2025-08-07
+  * vcpkg-cmake-config:x64-windows@2026-07-21
+  * zlib:x64-windows-static@1.3.2#2
+The following packages will be built and installed:
+    sdl3-mixer:x64-windows-static@3.2.4
+Restored 0 package(s) from C:\Users\Admin\AppData\Local\vcpkg\archives in 616 us. Use --debug to see more details.
+Installing 1/1 sdl3-mixer:x64-windows-static@3.2.4...
+sdl3-mixer:x64-windows-static@3.2.4 package ABI: 4dd3c9447358ea08414cf7c9cc655a327a68cec3b99d94c368caecb3d0c33bb1
+Building sdl3-mixer:x64-windows-static@3.2.4...
+Downloading https://github.com/libsdl-org/SDL_mixer/archive/release-3.2.4.tar.gz -> libsdl-org-SDL_mixer-release-3.2.4.tar.gz
+Successfully downloaded libsdl-org-SDL_mixer-release-3.2.4.tar.gz
+-- Extracting source C:/tools/vcpkg/downloads/libsdl-org-SDL_mixer-release-3.2.4.tar.gz
+-- Applying patch fluidsynth.diff
+-- Using source at C:/tools/vcpkg/buildtrees/sdl3-mixer/src/ease-3.2.4-fd811b934b.clean
+-- Configuring x64-windows-static
+-- Building x64-windows-static-dbg
+-- Building x64-windows-static-rel
+-- Fixing pkgconfig file: C:/tools/vcpkg/packages/sdl3-mixer_x64-windows-static/lib/pkgconfig/sdl3-mixer.pc
+-- Using cached msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/tools/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/tools/vcpkg/packages/sdl3-mixer_x64-windows-static/debug/lib/pkgconfig/sdl3-mixer.pc
+-- Installing: C:/tools/vcpkg/packages/sdl3-mixer_x64-windows-static/share/sdl3-mixer/usage
+-- Installing: C:/tools/vcpkg/packages/sdl3-mixer_x64-windows-static/share/sdl3-mixer/copyright
+-- Performing post-build validation
+Starting submission of sdl3-mixer:x64-windows-static@3.2.4 to 1 binary cache(s) in the background
+Elapsed time to handle sdl3-mixer:x64-windows-static: 10 s
+Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Packages installed in this vcpkg installation declare the following licenses:
+Zlib
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+sdl3 provides CMake targets:
+
+  find_package(SDL3 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE SDL3::SDL3)
+
+imgui provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(imgui CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE imgui::imgui)
+
+sdl3-mixer provides CMake targets:
+
+  find_package(SDL3_mixer CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE $<IF:$<TARGET_EXISTS:SDL3_mixer::SDL3_mixer>,SDL3_mixer::SDL3_mixer,SDL3_mixer::SDL3_mixer-static>)
+
+The package spdlog provides CMake targets:
+
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog)
+
+    # Or use the header-only version
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
+
+Waiting for 1 remaining binary cache submissions...
+Completed submission of sdl3-mixer:x64-windows-static@3.2.4 to 1 binary cache(s) in 282 ms (1/1)
+All requested installations completed successfully in: 10 s
+-- Running vcpkg install - done
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+CMake Error at C:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake:939 (_find_package):
+  Could not find a package configuration file provided by "SDL3-mixer" with
+  any of the following names:
+
+    SDL3-mixerConfig.cmake
+    sdl3-mixer-config.cmake
+
+  Add the installation prefix of "SDL3-mixer" to CMAKE_PREFIX_PATH or set
+  "SDL3-mixer_DIR" to a directory containing one of the above files.  If
+  "SDL3-mixer" provides a separate development package or SDK, be sure it has
+  been installed.
+Call Stack (most recent call first):
+  CMakeLists.txt:9 (find_package)
+
+
+-- Configuring incomplete, errors occurred!

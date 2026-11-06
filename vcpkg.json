@@ -1,0 +1,35 @@
+{
+  "name": "celestclone",
+  "version": "0.1.0",
+  "dependencies": [
+    {
+      "name": "spdlog",
+      "features": ["fmt"]
+    },
+    {
+      "name": "fmt"
+    },
+    {
+      "name": "zlib"
+    },
+    {
+      "name": "sdl3"
+    },
+    {
+      "name": "sdl3-mixer"
+    },
+    {
+      "name": "miniaudio"
+    },
+    {
+      "name": "imgui",
+      "features": [
+        "docking-experimental",
+        "freetype",
+        "sdl3-binding",
+        "sdl3-renderer-binding",
+        "sdlgpu3-binding"
+      ]
+    }
+  ]
+}
